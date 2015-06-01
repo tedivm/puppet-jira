@@ -113,7 +113,8 @@ class jira (
   # Tomcat Tunables
   $tomcatMaxThreads  = '150',
   $tomcatAcceptCount = '100',
-  
+  $tomcatExtras      = {},
+
   # Reverse https proxy
   $proxy = {},
   # Options for the AJP connector

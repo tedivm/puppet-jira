@@ -61,6 +61,12 @@
                    redirectPort="8443"
                    acceptCount="<%= @tomcatAcceptCount %>"
                    disableUploadTimeout="true"
+
+<% if @tomcatExtras -%>
+<%   @tomcatExtras.sort.each do |key,value| -%>
+                   <%= key %> = <%= "\'#{value}\'" %>
+<%   end -%>
+<% end -%>
 <% if @proxy -%>
 <%   @proxy.sort.each do |key,value| -%>
                    <%= key %> = <%= "\'#{value}\'" %>
@@ -121,7 +127,7 @@
 <%   end -%>
         />
 <% end -%>
-  
+
         <Engine name="Catalina" defaultHost="localhost">
             <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
 
